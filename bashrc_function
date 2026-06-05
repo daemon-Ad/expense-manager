@@ -1,0 +1,18 @@
+sync_and_shutdown() {
+    echo "Starting daily expense sync..."
+
+    # Run the orchestrator
+    ~/Projects/Expense-automation/venv/bin/python ~/Projects/Expense-automation/main.py
+
+    if [ $? -eq 0 ]; then
+        echo "Sync successful. Shutting down..."
+        sudo shutdown -h now
+    else
+        echo "-----------------------------------"
+        echo "SYNC FAILED! Shutdown aborted."
+        echo "Check the errors above before powering off."
+        echo "-----------------------------------"
+    fi
+}
+
+alias off="sync_and_shutdown"

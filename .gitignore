@@ -1,0 +1,27 @@
+# Secrets
+.env
+
+# Database
+*.db
+
+# Playwright browser profile (contains cookies/session)
+playwright-profile/
+
+# Logs
+logs/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Backup files
+*.bak
+
+# Old scripts (optional, up to you)
+final.py
+profile_create.py
+transactions.json
+
+# ezBookkeeping binary directory (too large, not your code)
+ezbookkeeping/
