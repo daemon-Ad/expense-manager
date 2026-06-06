@@ -3,6 +3,8 @@ import requests
 import logging
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+load_dotenv()
 
 # --- Logger Setup ---
 os.makedirs("logs", exist_ok=True)
@@ -15,9 +17,10 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 # --- Config ---
-EZBOOK_URL = "http://localhost:8080"
-TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyVG9rZW5JZCI6IjM4NzY2MzMyMjE5NjE4MTQxMjQiLCJqdGkiOiIzODIzOTQwOTUzNjQzNjc5NzQ0IiwidXNlcm5hbWUiOiJhZGl0eWEiLCJ0eXBlIjo4LCJpYXQiOjE3ODA2NjE3ODUsImV4cCI6MTc4MDc0ODE4NX0.8QKdnN32odDA8i1FtH1LthGE-SAkACDQa7TJJOr_r8Q"
-ACCOUNT_ID = "3823945800648491008"
+EZBOOK_URL = os.getenv("EZBOOK_URL", "http://localhost:8080")
+TOKEN = os.getenv("EZBOOK_TOKEN")
+ACCOUNT_ID = os.getenv("ACCOUNT_ID")
+
 UTC_OFFSET = 330
 
 CATEGORY_MAP = {
